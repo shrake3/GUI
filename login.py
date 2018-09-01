@@ -48,7 +48,7 @@ def login():
     text2 = Label(frame2, text="Password  : ", bg="grey40", fg="white").place(x=30, y=100)
     uname = Entry(frame2, bg='grey90', width=25, font=("consolas",10,"bold"))
     uname.place(x=95, y=70)
-    passwd = Entry(frame2, bg="grey90", width=25, font=("consolas",10,"bold"))
+    passwd = Entry(frame2, bg="grey90",show="\u2022", width=25, font=("consolas",10,"bold"))
     passwd.place(x=95, y=100)
 
     btn_design = Canvas(frame2, width=51, height=24).place(x=59, y=149)
@@ -113,6 +113,7 @@ def change_folder():
                 c.execute("UPDATE data SET folder=? WHERE username=?",(add,un_name))
                 conn.commit()
                 msg = tkinter.messagebox.showinfo("Info", "Folder Changed")
+                change_folder()
             else:
                 msg = tkinter.messagebox.showerror("Info", "Folder not selected")
 
@@ -137,7 +138,7 @@ def change_folder():
 
     uname = Entry(frame5, width=25, bg="grey90", font=("consolas",10,"bold"))
     uname.place(x=95, y=30)
-    passwd = Entry(frame5, width=25, bg="grey90", font=("consolas",10,"bold"))
+    passwd = Entry(frame5, width=25,show="\u2022", bg="grey90", font=("consolas",10,"bold"))
     passwd.place(x=95, y=60)
 
     btn_design = Canvas(frame5, width=75, height=24).place(x=139, y=89)
@@ -216,10 +217,10 @@ def create_account():
     entry_3 = Entry(frame4, bg="grey90", width=25, font=("consolas",10,"bold","italic"))
     entry_3.place(x=100, y=10)
 
-    entry_4 = Entry(frame4, bg="grey90", width=25, font=("consolas",10,"bold","italic"))
+    entry_4 = Entry(frame4, bg="grey90",show="\u2022", width=25, font=("consolas",10,"bold","italic"))
     entry_4.place(x=100, y=40)
 
-    entry_5 = Entry(frame4, bg="grey90", width=25, font=("consolas",10,"bold","italic"))
+    entry_5 = Entry(frame4, bg="grey90",show="\u2022", width=25, font=("consolas",10,"bold","italic"))
     entry_5.place(x=100, y=70)
 
     btn_design = Canvas(frame4, width=75, height=24).place(x=154, y=99)
@@ -258,6 +259,7 @@ def change_password():
                     c.execute("UPDATE data SET password=? WHERE username=?",(new_pass,user_name))
                     conn.commit()
                     msg1 = tkinter.messagebox.showwarning("Info","Password Changed Successfully")
+                    change_password()
                 else:
                     msg = tkinter.messagebox.showwarning("Info","Password Does not match")
 
@@ -290,11 +292,11 @@ def change_password():
 
     u_name = Entry(frame3, width=23, bg="grey90", font=("consolas",10,"bold","italic"))
     u_name.place(x=115, y=10)
-    old_1 = Entry(frame3, width=23, bg="grey90", font=("consolas",10,"bold","italic"))
+    old_1 = Entry(frame3, width=23,show="\u2022", bg="grey90", font=("consolas",10,"bold","italic"))
     old_1.place(x=115, y=40)
-    new_1 = Entry(frame3, width=23, bg="grey90", font=("consolas",10,"bold","italic"))
+    new_1 = Entry(frame3, width=23,show="\u2022", bg="grey90", font=("consolas",10,"bold","italic"))
     new_1.place(x=115, y=70)
-    new_2 = Entry(frame3, width=23, bg="grey90", font=("consolas",10,"bold","italic"))
+    new_2 = Entry(frame3, width=23,show="\u2022", bg="grey90", font=("consolas",10,"bold","italic"))
     new_2.place(x=115, y=100)
     frame3.pack()
 
